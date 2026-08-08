@@ -7,8 +7,7 @@ WORKDIR /var/www/html
 # Copiar archivos del proyecto
 COPY --chown=www-data:www-data . .
 
-RUN install-php-extensions gd
-# Instalar dependencias de Composer
+# Ignorar el chequeo de la extensión GD en el build
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-gd
 
 # Ajustar permisos de directorios clave de Laravel
