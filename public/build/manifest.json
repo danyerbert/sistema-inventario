@@ -344,7 +344,7 @@
     ]
   },
   "resources/css/app.css": {
-    "file": "assets/app-C2wFehcd.css",
+    "file": "assets/app-BGB7DJP2.css",
     "name": "app",
     "names": [
       "app.css"
@@ -353,7 +353,7 @@
     "isEntry": true
   },
   "resources/js/app.tsx": {
-    "file": "assets/app-Dp5zj5JL.js",
+    "file": "assets/app-DuQix3LM.js",
     "name": "app",
     "src": "resources/js/app.tsx",
     "isEntry": true,
@@ -456,7 +456,7 @@
     ]
   },
   "resources/js/pages/Equipment/Create.tsx": {
-    "file": "assets/Create-C5PhYE9G.js",
+    "file": "assets/Create-DA_Aq1YL.js",
     "name": "Create",
     "src": "resources/js/pages/Equipment/Create.tsx",
     "isDynamicEntry": true,
@@ -467,7 +467,7 @@
     ]
   },
   "resources/js/pages/Equipment/Edit.tsx": {
-    "file": "assets/Edit-DgI4VRxJ.js",
+    "file": "assets/Edit-8aTwjiaq.js",
     "name": "Edit",
     "src": "resources/js/pages/Equipment/Edit.tsx",
     "isDynamicEntry": true,
@@ -478,7 +478,7 @@
     ]
   },
   "resources/js/pages/Equipment/Form.tsx": {
-    "file": "assets/Form-B9_ViVgs.js",
+    "file": "assets/Form-Dao2A8Z3.js",
     "name": "Form",
     "src": "resources/js/pages/Equipment/Form.tsx",
     "isDynamicEntry": true,
@@ -495,7 +495,7 @@
     ]
   },
   "resources/js/pages/Equipment/Index.tsx": {
-    "file": "assets/Index-B5LK29ZI.js",
+    "file": "assets/Index-FI6IshrG.js",
     "name": "Index",
     "src": "resources/js/pages/Equipment/Index.tsx",
     "isDynamicEntry": true,
@@ -509,7 +509,7 @@
     ]
   },
   "resources/js/pages/Users/Create.tsx": {
-    "file": "assets/Create-Hyx5EC4g.js",
+    "file": "assets/Create-Eyvrw6O2.js",
     "name": "Create",
     "src": "resources/js/pages/Users/Create.tsx",
     "isDynamicEntry": true,
@@ -520,7 +520,7 @@
     ]
   },
   "resources/js/pages/Users/Edit.tsx": {
-    "file": "assets/Edit-BkG5pffO.js",
+    "file": "assets/Edit-CZVwFRhe.js",
     "name": "Edit",
     "src": "resources/js/pages/Users/Edit.tsx",
     "isDynamicEntry": true,
@@ -531,7 +531,7 @@
     ]
   },
   "resources/js/pages/Users/Form.tsx": {
-    "file": "assets/Form-DGpuxSOo.js",
+    "file": "assets/Form-DpSP4SR4.js",
     "name": "Form",
     "src": "resources/js/pages/Users/Form.tsx",
     "isDynamicEntry": true,
@@ -546,7 +546,7 @@
     ]
   },
   "resources/js/pages/Users/Index.tsx": {
-    "file": "assets/Index-DrmQTAuh.js",
+    "file": "assets/Index-BHkldMXW.js",
     "name": "Index",
     "src": "resources/js/pages/Users/Index.tsx",
     "isDynamicEntry": true,
@@ -559,7 +559,7 @@
     ]
   },
   "resources/js/pages/auth/confirm-password.tsx": {
-    "file": "assets/confirm-password-CW-zWDMP.js",
+    "file": "assets/confirm-password-D2msC_Li.js",
     "name": "confirm-password",
     "src": "resources/js/pages/auth/confirm-password.tsx",
     "isDynamicEntry": true,
@@ -610,7 +610,7 @@
     ]
   },
   "resources/js/pages/auth/register.tsx": {
-    "file": "assets/register-iwsryjL1.js",
+    "file": "assets/register-DXXv9zUo.js",
     "name": "register",
     "src": "resources/js/pages/auth/register.tsx",
     "isDynamicEntry": true,
@@ -672,7 +672,7 @@
     ]
   },
   "resources/js/pages/dashboard.tsx": {
-    "file": "assets/dashboard-BJNS_pe0.js",
+    "file": "assets/dashboard-BnTbTP-N.js",
     "name": "dashboard",
     "src": "resources/js/pages/dashboard.tsx",
     "isDynamicEntry": true,
