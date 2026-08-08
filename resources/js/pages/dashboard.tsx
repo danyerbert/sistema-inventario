@@ -26,7 +26,14 @@ interface Props {
     ultimosEquipos: UltimoEquipo[];
 }
 
-export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, porTipo, porEstado, ultimosEquipos }: Props) {
+export default function Dashboard({
+    totalEquipos,
+    totalMarcas,
+    totalPuestos,
+    porTipo,
+    porEstado,
+    ultimosEquipos,
+}: Props) {
     return (
         <>
             <Head title="Dashboard" />
@@ -34,7 +41,9 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
                 <div className="grid gap-4 sm:grid-cols-3">
                     <Card>
                         <CardHeader>
-                            <CardTitle className="text-sm text-muted-foreground font-normal">Equipos registrados</CardTitle>
+                            <CardTitle className="text-sm font-normal text-muted-foreground">
+                                Equipos registrados
+                            </CardTitle>
                         </CardHeader>
                         <CardContent>
                             <p className="text-3xl font-bold">{totalEquipos}</p>
@@ -42,7 +51,9 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
                     </Card>
                     <Card>
                         <CardHeader>
-                            <CardTitle className="text-sm text-muted-foreground font-normal">Marcas</CardTitle>
+                            <CardTitle className="text-sm font-normal text-muted-foreground">
+                                Marcas
+                            </CardTitle>
                         </CardHeader>
                         <CardContent>
                             <p className="text-3xl font-bold">{totalMarcas}</p>
@@ -50,7 +61,9 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
                     </Card>
                     <Card>
                         <CardHeader>
-                            <CardTitle className="text-sm text-muted-foreground font-normal">Puestos de trabajo</CardTitle>
+                            <CardTitle className="text-sm font-normal text-muted-foreground">
+                                Puestos de trabajo
+                            </CardTitle>
                         </CardHeader>
                         <CardContent>
                             <p className="text-3xl font-bold">{totalPuestos}</p>
@@ -64,10 +77,15 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
                             <CardTitle>Por tipo de equipo</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
-                            {porTipo.map(item => (
-                                <div key={item.id_type_of_equipment} className="flex justify-between text-sm">
+                            {porTipo.map((item) => (
+                                <div
+                                    key={item.id_type_of_equipment}
+                                    className="flex justify-between text-sm"
+                                >
                                     <span>{item.type_of_equipment}</span>
-                                    <span className="font-medium">{item.equipment_details_count}</span>
+                                    <span className="font-medium">
+                                        {item.equipment_details_count}
+                                    </span>
                                 </div>
                             ))}
                         </CardContent>
@@ -78,10 +96,15 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
                             <CardTitle>Por estado operativo</CardTitle>
                         </CardHeader>
                         <CardContent className="space-y-2">
-                            {porEstado.map(item => (
-                                <div key={item.id_operational_status} className="flex justify-between text-sm">
+                            {porEstado.map((item) => (
+                                <div
+                                    key={item.id_operational_status}
+                                    className="flex justify-between text-sm"
+                                >
                                     <span>{item.operational_status}</span>
-                                    <span className="font-medium">{item.equipment_details_count}</span>
+                                    <span className="font-medium">
+                                        {item.equipment_details_count}
+                                    </span>
                                 </div>
                             ))}
                         </CardContent>
@@ -94,13 +117,19 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
                     </CardHeader>
                     <CardContent className="space-y-2">
                         {ultimosEquipos.length === 0 && (
-                            <p className="text-sm text-muted-foreground">Todavía no hay equipos registrados.</p>
+                            <p className="text-sm text-muted-foreground">
+                                Todavía no hay equipos registrados.
+                            </p>
                         )}
-                        {ultimosEquipos.map(equipo => (
-                            <div key={equipo.id_equipment_details} className="flex justify-between text-sm border-b last:border-0 pb-2 last:pb-0">
+                        {ultimosEquipos.map((equipo) => (
+                            <div
+                                key={equipo.id_equipment_details}
+                                className="flex justify-between border-b pb-2 text-sm last:border-0 last:pb-0"
+                            >
                                 <span>{equipo.property_number}</span>
                                 <span className="text-muted-foreground">
-                                    {equipo.type_of_equipment.type_of_equipment} · {equipo.brand.name_brand}
+                                    {equipo.type_of_equipment.type_of_equipment}{' '}
+                                    · {equipo.brand.name_brand}
                                 </span>
                             </div>
                         ))}
@@ -112,7 +141,5 @@ export default function Dashboard({ totalEquipos, totalMarcas, totalPuestos, por
 }
 
 Dashboard.layout = {
-    breadcrumbs: [
-        { title: 'Dashboard', href: dashboard() },
-    ],
+    breadcrumbs: [{ title: 'Dashboard', href: dashboard() }],
 };

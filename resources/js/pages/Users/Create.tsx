@@ -18,7 +18,7 @@ export default function Create({ roles }: Props) {
     return (
         <>
             <Head title="Nuevo usuario" />
-            <div className="max-w-2xl mx-auto py-8 px-4">
+            <div className="mx-auto max-w-2xl px-4 py-8">
                 <UserForm roles={roles} onSubmit={handleSubmit} />
             </div>
         </>

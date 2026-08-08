@@ -17,15 +17,13 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import equipment from '@/routes/equipment';
-import type {SharedData} from '@/types';
+import type { SharedData } from '@/types';
 import type {
     EquipmentDetail,
     TypeOfEquipment,
     OperationalStatus,
     PaginatedData,
 } from '@/types/inventory';
-
-
 
 interface Props {
     equipos: PaginatedData<EquipmentDetail>;
@@ -40,7 +38,7 @@ interface Props {
 
 function buildExportUrl(base: string, filters: Props['filters']) {
     const params = new URLSearchParams(
-        Object.entries(filters).filter(([, v]) => v) as [string, string][]
+        Object.entries(filters).filter(([, v]) => v) as [string, string][],
     );
     const query = params.toString();
 
@@ -78,17 +76,31 @@ export default function Index({ equipos, filters }: Props) {
                     />
                     {can('equipment.create') && (
                         <Button asChild className="w-full sm:w-auto">
-                            <Link href={equipment.create()}>+ Nuevo equipo</Link>
+                            <Link href={equipment.create()}>
+                                + Nuevo equipo
+                            </Link>
                         </Button>
                     )}
                     <div className="flex gap-2">
                         <Button variant="outline" asChild>
-                            <a href={buildExportUrl('/equipment/export/pdf', filters)} target="_blank" rel="noopener">
+                            <a
+                                href={buildExportUrl(
+                                    '/equipment/export/pdf',
+                                    filters,
+                                )}
+                                target="_blank"
+                                rel="noopener"
+                            >
                                 <FileDown className="size-4" /> PDF
                             </a>
                         </Button>
                         <Button variant="outline" asChild>
-                            <a href={buildExportUrl('/equipment/export/excel', filters)}>
+                            <a
+                                href={buildExportUrl(
+                                    '/equipment/export/excel',
+                                    filters,
+                                )}
+                            >
                                 <FileSpreadsheet className="size-4" /> Excel
                             </a>
                         </Button>
@@ -142,12 +154,28 @@ export default function Index({ equipos, filters }: Props) {
                                     </td>
                                     <td className="space-x-1 px-3 text-right">
                                         {can('equipment.edit') && (
-                                            <Button variant="link" size="sm" asChild>
-                                                <Link href={equipment.edit(equipo.id_equipment_details)}>Editar</Link>
+                                            <Button
+                                                variant="link"
+                                                size="sm"
+                                                asChild
+                                            >
+                                                <Link
+                                                    href={equipment.edit(
+                                                        equipo.id_equipment_details,
+                                                    )}
+                                                >
+                                                    Editar
+                                                </Link>
                                             </Button>
                                         )}
                                         {can('equipment.delete') && (
-                                            <DeleteConfirm onConfirm={() => handleDelete(equipo.id_equipment_details)} />
+                                            <DeleteConfirm
+                                                onConfirm={() =>
+                                                    handleDelete(
+                                                        equipo.id_equipment_details,
+                                                    )
+                                                }
+                                            />
                                         )}
                                     </td>
                                 </tr>
@@ -175,7 +203,8 @@ export default function Index({ equipos, filters }: Props) {
                                 </span>
                             </div>
                             <p className="text-sm text-muted-foreground">
-                                {equipo.type_of_equipment.type_of_equipment} · {equipo.brand.name_brand}
+                                {equipo.type_of_equipment.type_of_equipment} ·{' '}
+                                {equipo.brand.name_brand}
                             </p>
                             <p className="text-sm text-muted-foreground">
                                 Puesto:{' '}

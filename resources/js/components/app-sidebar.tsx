@@ -18,7 +18,7 @@ import brands from '@/routes/brands';
 import equipment from '@/routes/equipment';
 import users from '@/routes/users';
 import type { NavItem } from '@/types';
-import type {SharedData} from '@/types';
+import type { SharedData } from '@/types';
 
 const footerNavItems: NavItem[] = [
     /*{

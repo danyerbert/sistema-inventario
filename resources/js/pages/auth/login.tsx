@@ -11,7 +11,7 @@ type Props = {
     status?: string;
 };
 
-export default function Login({ status}: Props) {
+export default function Login({ status }: Props) {
     return (
         <>
             <Head title="Inicio de Sessión" />
@@ -25,7 +25,9 @@ export default function Login({ status}: Props) {
                     <>
                         <div className="grid gap-6">
                             <div className="grid gap-2">
-                                <Label htmlFor="email">Correo Electronico</Label>
+                                <Label htmlFor="email">
+                                    Correo Electronico
+                                </Label>
                                 <Input
                                     id="email"
                                     type="email"

@@ -20,8 +20,12 @@ export default function Edit({ usuario, roles }: Props) {
     return (
         <>
             <Head title="Editar usuario" />
-            <div className="max-w-2xl mx-auto py-8 px-4">
-                <UserForm usuario={usuario} roles={roles} onSubmit={handleSubmit} />
+            <div className="mx-auto max-w-2xl px-4 py-8">
+                <UserForm
+                    usuario={usuario}
+                    roles={roles}
+                    onSubmit={handleSubmit}
+                />
             </div>
         </>
     );
