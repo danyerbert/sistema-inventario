@@ -120,27 +120,65 @@ export default function Index({ equipos, filters }: Props) {
                                 <th className="px-3 font-medium">Marca</th>
                                 <th className="px-3 font-medium">Puesto</th>
                                 <th className="px-3 font-medium">Estatus</th>
-                                <th className="px-3 font-medium">Observaciones</th>
+                                <th className="px-3 font-medium">
+                                    Observaciones
+                                </th>
                                 <th className="px-3 text-right font-medium">
                                     Acciones
                                 </th>
                             </tr>
                         </thead>
                         <tbody>
-                            {equipos.data.map(equipo => (
-                                <tr key={equipo.id_equipment_details} className="border-b last:border-0 align-top">
-                                    <td className="px-3">{equipo.property_number ?? 'N/P'}</td>
-                                    <td className="px-3">{equipo.serial ?? 'N/P'}</td>
-                                    <td className="px-3">{equipo.type_of_equipment.type_of_equipment}</td>
-                                    <td className="px-3">{equipo.brand.name_brand}</td>
-                                    <td className="px-3">{equipo.workstation?.number_workstation ?? '—'}</td>
-                                    <td className="px-3">{equipo.operational_status.operational_status}</td>
-                                    <td className="px-3">{equipo.observaciones ?? 'N/P'}</td>
-                                    <td className="px-3 text-right space-x-1">
+                            {equipos.data.map((equipo) => (
+                                <tr
+                                    key={equipo.id_equipment_details}
+                                    className="border-b align-top last:border-0"
+                                >
+                                    <td className="px-3">
+                                        {equipo.property_number ?? 'N/P'}
+                                    </td>
+                                    <td className="px-3">
+                                        {equipo.serial ?? 'N/P'}
+                                    </td>
+                                    <td className="px-3">
+                                        {
+                                            equipo.type_of_equipment
+                                                .type_of_equipment
+                                        }
+                                    </td>
+                                    <td className="px-3">
+                                        {equipo.brand.name_brand}
+                                    </td>
+                                    <td className="px-3">
+                                        {equipo.workstation
+                                            ?.number_workstation ?? '—'}
+                                    </td>
+                                    <td className="px-3">
+                                        {
+                                            equipo.operational_status
+                                                .operational_status
+                                        }
+                                    </td>
+                                    <td className="px-3">
+                                        {equipo.observaciones ?? 'N/P'}
+                                    </td>
+                                    <td className="space-x-1 px-3 text-right">
                                         <Button variant="link" asChild>
-                                            <Link href={equipment.edit(equipo.id_equipment_details)}>Editar</Link>
+                                            <Link
+                                                href={equipment.edit(
+                                                    equipo.id_equipment_details,
+                                                )}
+                                            >
+                                                Editar
+                                            </Link>
                                         </Button>
-                                        <DeleteConfirm onConfirm={() => handleDelete(equipo.id_equipment_details)} />
+                                        <DeleteConfirm
+                                            onConfirm={() =>
+                                                handleDelete(
+                                                    equipo.id_equipment_details,
+                                                )
+                                            }
+                                        />
                                     </td>
                                 </tr>
                             ))}
@@ -151,28 +189,54 @@ export default function Index({ equipos, filters }: Props) {
                 {/* Vista tarjetas — solo móvil */}
                 <div className="grid gap-3 md:hidden">
                     {equipos.data.map((equipo) => (
-                        <div key={equipo.id_equipment_details} className="rounded-md border p-4 space-y-1">
-                            <div className="flex justify-between items-start">
-                                <span className="font-medium">{equipo.property_number ?? 'N/P'}</span>
-                                <span className="text-xs text-muted-foreground">{equipo.operational_status.operational_status}</span>
+                        <div
+                            key={equipo.id_equipment_details}
+                            className="space-y-1 rounded-md border p-4"
+                        >
+                            <div className="flex items-start justify-between">
+                                <span className="font-medium">
+                                    {equipo.property_number ?? 'N/P'}
+                                </span>
+                                <span className="text-xs text-muted-foreground">
+                                    {
+                                        equipo.operational_status
+                                            .operational_status
+                                    }
+                                </span>
                             </div>
                             <p className="text-sm text-muted-foreground">
-                                {equipo.type_of_equipment.type_of_equipment} · {equipo.brand.name_brand}
+                                {equipo.type_of_equipment.type_of_equipment} ·{' '}
+                                {equipo.brand.name_brand}
                             </p>
-                            <p className="text-sm text-muted-foreground">Serial: {equipo.serial ?? 'N/P'}</p>
                             <p className="text-sm text-muted-foreground">
-                                Puesto: {equipo.workstation?.number_workstation ?? '—'}
+                                Serial: {equipo.serial ?? 'N/P'}
+                            </p>
+                            <p className="text-sm text-muted-foreground">
+                                Puesto:{' '}
+                                {equipo.workstation?.number_workstation ?? '—'}
                             </p>
                             {equipo.observaciones && (
-                                <p className="text-sm text-muted-foreground line-clamp-2">
+                                <p className="line-clamp-2 text-sm text-muted-foreground">
                                     {equipo.observaciones}
                                 </p>
                             )}
                             <div className="flex justify-end gap-2 pt-2">
                                 <Button variant="outline" size="sm" asChild>
-                                    <Link href={equipment.edit(equipo.id_equipment_details)}>Editar</Link>
+                                    <Link
+                                        href={equipment.edit(
+                                            equipo.id_equipment_details,
+                                        )}
+                                    >
+                                        Editar
+                                    </Link>
                                 </Button>
-                                <DeleteConfirm onConfirm={() => handleDelete(equipo.id_equipment_details)} />
+                                <DeleteConfirm
+                                    onConfirm={() =>
+                                        handleDelete(
+                                            equipo.id_equipment_details,
+                                        )
+                                    }
+                                />
                             </div>
                         </div>
                     ))}
