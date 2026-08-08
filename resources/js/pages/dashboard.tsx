@@ -1,6 +1,6 @@
 import { Head } from '@inertiajs/react';
-import { dashboard } from '@/routes';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { dashboard } from '@/routes';
 
 interface CountItem {
     id_type_of_equipment?: number;

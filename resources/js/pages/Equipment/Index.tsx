@@ -1,5 +1,7 @@
 // resources/js/pages/Equipment/Index.tsx
 import { Head, Link, router } from '@inertiajs/react';
+import { usePage } from '@inertiajs/react';
+import { FileDown, FileSpreadsheet } from 'lucide-react';
 import type { ChangeEvent } from 'react';
 import {
     AlertDialog,
@@ -15,6 +17,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import equipment from '@/routes/equipment';
+import type {SharedData} from '@/types';
 import type {
     EquipmentDetail,
     TypeOfEquipment,
@@ -22,10 +25,7 @@ import type {
     PaginatedData,
 } from '@/types/inventory';
 
-import { FileDown, FileSpreadsheet } from 'lucide-react';
 
-import { usePage } from '@inertiajs/react';
-import { type SharedData } from '@/types';
 
 interface Props {
     equipos: PaginatedData<EquipmentDetail>;
@@ -43,6 +43,7 @@ function buildExportUrl(base: string, filters: Props['filters']) {
         Object.entries(filters).filter(([, v]) => v) as [string, string][]
     );
     const query = params.toString();
+
     return query ? `${base}?${query}` : base;
 }
 

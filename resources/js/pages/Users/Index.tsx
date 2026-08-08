@@ -1,16 +1,16 @@
 // resources/js/pages/Users/Index.tsx
 import { Head, Link, router, usePage } from '@inertiajs/react';
-import { ChangeEvent } from 'react';
-import users from '@/routes/users';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
+import type { ChangeEvent } from 'react';
 import {
     AlertDialog, AlertDialogAction, AlertDialogCancel, AlertDialogContent,
     AlertDialogDescription, AlertDialogFooter, AlertDialogHeader, AlertDialogTitle, AlertDialogTrigger,
 } from '@/components/ui/alert-dialog';
-import { UserListItem } from '@/types/users';
-import { PaginatedData } from '@/types/inventory';
-import { type SharedData } from '@/types';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import users from '@/routes/users';
+import type {SharedData} from '@/types';
+import type { PaginatedData } from '@/types/inventory';
+import type { UserListItem } from '@/types/users';
 
 interface Props {
     users: PaginatedData<UserListItem>;

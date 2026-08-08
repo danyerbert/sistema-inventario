@@ -1,8 +1,8 @@
 // resources/js/pages/Users/Edit.tsx
 import { Head, useForm } from '@inertiajs/react';
 import users from '@/routes/users';
+import type { UserEditable } from '@/types/users';
 import UserForm from './Form';
-import { UserEditable } from '@/types/users';
 
 interface Props {
     usuario: UserEditable;
