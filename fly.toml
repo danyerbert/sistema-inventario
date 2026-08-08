@@ -1,18 +1,30 @@
-app = "sistema-inventario-9x4gqq"
-primary_region = "bog"
+# fly.toml app configuration file generated for sistema-inventario-nncdyq on 2026-08-08T07:43:39Z
+#
+# See https://fly.io/docs/reference/configuration/ for information about how to use this file.
+#
+
+app = 'sistema-inventario-nncdyq'
+primary_region = 'ams'
 
 [build]
-  dockerfile = "Dockerfile"
+  dockerfile = 'Dockerfile'
+
+[deploy]
+  release_command = 'php artisan migrate --force'
 
 [env]
-  APP_ENV = "production"
-  APP_DEBUG = "false"
-  LOG_CHANNEL = "stderr"
-  LOG_LEVEL = "info"
-  SESSION_DRIVER = "cookie"
-  CACHE_STORE = "file"
-  DB_CONNECTION = "sqlite"
-  DB_DATABASE = "/var/www/html/database/database.sqlite"
+  APP_DEBUG = 'false'
+  APP_ENV = 'production'
+  CACHE_STORE = 'file'
+  DB_CONNECTION = 'sqlite'
+  DB_DATABASE = '/var/www/html/database/database.sqlite'
+  LOG_CHANNEL = 'stderr'
+  LOG_LEVEL = 'info'
+  SESSION_DRIVER = 'cookie'
+
+[[mounts]]
+  source = 'sqlite_data'
+  destination = '/var/www/html/database'
 
 [http_service]
   internal_port = 8080
@@ -26,10 +38,4 @@ primary_region = "bog"
   memory = '512mb'
   cpu_kind = 'shared'
   cpus = 1
-
-[[mounts]]
-  source = "sqlite_data"
-  destination = "/var/www/html/database"
-
-[deploy]
-  release_command = "php artisan migrate --force"
+  memory_mb = 256
