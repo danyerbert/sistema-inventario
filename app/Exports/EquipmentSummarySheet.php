@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Exports;
 
 use Illuminate\Support\Collection;
@@ -9,9 +10,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class EquipmentSummarySheet implements FromCollection, WithHeadings, WithStyles
 {
-    public function __construct(private Collection $equipos)
-    {
-    }
+    public function __construct(private Collection $equipos) {}
 
     public function collection()
     {

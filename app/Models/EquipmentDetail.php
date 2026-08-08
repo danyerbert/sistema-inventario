@@ -6,8 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class EquipmentDetail extends Model
 {
-     protected $table = 'equipment_details';
+    protected $table = 'equipment_details';
+
     protected $primaryKey = 'id_equipment_details';
+
     protected $fillable = [
         'property_number', 'serial', 'observaciones',
         'id_type_of_equipment', 'id_brand', 'id_workstation', 'id_operational_status',

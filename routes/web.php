@@ -1,16 +1,16 @@
 <?php
 
 use App\Http\Controllers\BrandController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\EquipmentDetailController;
 use App\Http\Controllers\EquipmentExportController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\DashboardController;
 
-//Route::inertia('/', 'welcome')->name('home');
+// Route::inertia('/', 'welcome')->name('home');
 Route::redirect('/', '/login')->name('home');
 Route::middleware(['auth', 'verified'])->group(function () {
-    //Route::inertia('dashboard', 'dashboard')->name('dashboard');
+    // Route::inertia('dashboard', 'dashboard')->name('dashboard');
     Route::get('dashboard', [DashboardController::class, 'index'])->name('dashboard');
     Route::get('/equipment/export/pdf', [EquipmentExportController::class, 'pdf'])
         ->middleware('permission:equipment.export')->name('equipment.export.pdf');

@@ -1,7 +1,7 @@
 <?php
+
 namespace App\Exports;
 
-use App\Models\EquipmentDetail;
 use Illuminate\Support\Collection;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithHeadings;
@@ -11,9 +11,7 @@ use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
 
 class EquipmentSheet implements FromCollection, WithHeadings, WithMapping, WithStyles
 {
-    public function __construct(private Collection $equipos)
-    {
-    }
+    public function __construct(private Collection $equipos) {}
 
     public function collection()
     {

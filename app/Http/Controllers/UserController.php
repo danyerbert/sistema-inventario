@@ -1,4 +1,5 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\User;
@@ -16,7 +17,7 @@ class UserController extends Controller
         $users = User::with('roles')
             ->when($request->search, function ($q, $search) {
                 $q->where('name', 'like', "%{$search}%")
-                  ->orWhere('email', 'like', "%{$search}%");
+                    ->orWhere('email', 'like', "%{$search}%");
             })
             ->orderBy('name')
             ->paginate(15)
@@ -84,7 +85,7 @@ class UserController extends Controller
         $user->update([
             'name' => $data['name'],
             'email' => $data['email'],
-            ...(!empty($data['password']) ? ['password' => Hash::make($data['password'])] : []),
+            ...(! empty($data['password']) ? ['password' => Hash::make($data['password'])] : []),
         ]);
 
         $user->syncRoles([$data['role']]);

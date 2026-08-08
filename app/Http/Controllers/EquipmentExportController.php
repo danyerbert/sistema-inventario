@@ -15,7 +15,7 @@ class EquipmentExportController extends Controller
         return EquipmentDetail::with(['typeOfEquipment', 'brand', 'workstation', 'operationalStatus'])
             ->when($request->search, function ($q, $search) {
                 $q->where('property_number', 'like', "%{$search}%")
-                  ->orWhere('serial', 'like', "%{$search}%");
+                    ->orWhere('serial', 'like', "%{$search}%");
             })
             ->when($request->id_operational_status, fn ($q, $v) => $q->where('id_operational_status', $v))
             ->when($request->id_type_of_equipment, fn ($q, $v) => $q->where('id_type_of_equipment', $v))
@@ -37,7 +37,7 @@ class EquipmentExportController extends Controller
             'total' => $equipos->count(),
         ])->setPaper('a4', 'landscape');
 
-        return $pdf->download('inventario-equipos-' . now()->format('Y-m-d') . '.pdf');
+        return $pdf->download('inventario-equipos-'.now()->format('Y-m-d').'.pdf');
     }
 
     public function excel(Request $request)
@@ -46,7 +46,7 @@ class EquipmentExportController extends Controller
 
         return Excel::download(
             new EquipmentExport($equipos),
-            'inventario-equipos-' . now()->format('Y-m-d') . '.xlsx'
+            'inventario-equipos-'.now()->format('Y-m-d').'.xlsx'
         );
     }
 }
