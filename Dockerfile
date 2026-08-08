@@ -7,6 +7,7 @@ WORKDIR /var/www/html
 # Copiar archivos del proyecto
 COPY --chown=www-data:www-data . .
 
+RUN install-php-extensions gd
 # Instalar dependencias de Composer
 RUN composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-gd
 
