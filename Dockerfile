@@ -8,7 +8,7 @@ WORKDIR /var/www/html
 COPY --chown=www-data:www-data . .
 
 # Instalar dependencias de Composer
-RUN composer install --no-dev --optimize-autoloader
+RUN composer install --no-dev --optimize-autoloader --ignore-platform-req=ext-gd
 
 # Ajustar permisos de directorios clave de Laravel
 RUN chmod -R 775 storage bootstrap/cache
