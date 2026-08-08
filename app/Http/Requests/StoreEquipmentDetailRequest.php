@@ -23,8 +23,8 @@ class StoreEquipmentDetailRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'property_number' => ['required', 'string', 'max:120', 'unique:equipment_details,property_number'],
-            'serial' => ['required', 'string', 'max:200'],
+            'property_number' => ['nullable', 'string', 'max:120', 'unique:equipment_details,property_number'],
+            'serial' => ['nullable', 'string', 'max:200'],
             'observaciones' => ['nullable', 'string'],
             'id_type_of_equipment' => ['required', 'exists:type_of_equipment,id_type_of_equipment'],
             'id_brand' => ['required', 'exists:brands,id_brand'],

@@ -20,16 +20,16 @@ class EquipmentSheet implements FromCollection, WithHeadings, WithMapping, WithS
 
     public function headings(): array
     {
-        return ['N° inventario', 'Tipo', 'Marca', 'Serial', 'Puesto', 'Estado', 'Observaciones'];
+        return ['N° Bien', 'Tipo', 'Marca', 'Serial', 'Puesto', 'Estatus', 'Observaciones'];
     }
 
     public function map($equipo): array
     {
         return [
-            $equipo->property_number,
+            $equipo->property_number ?? 'N/P',
             $equipo->typeOfEquipment->type_of_equipment,
             $equipo->brand->name_brand,
-            $equipo->serial,
+            $equipo->serial ?? 'N/P',
             $equipo->workstation->number_workstation ?? '—',
             $equipo->operationalStatus->operational_status,
             $equipo->observaciones,

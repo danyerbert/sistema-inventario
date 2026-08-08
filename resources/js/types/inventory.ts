@@ -30,8 +30,8 @@ export interface OperationalStatus {
 
 export interface EquipmentDetail {
     id_equipment_details: number;
-    property_number: string;
-    serial: string;
+    property_number: string | null; // ← antes era string
+    serial: string | null;
     observaciones: string | null;
     id_type_of_equipment: number;
     id_brand: number;

@@ -22,11 +22,11 @@ class UpdateEquipmentDetailRequest extends FormRequest
      */
     public function rules(): array
     {
-        $id = $this->route('equipment_detail')->id_equipment_details;
+        $id = $this->route('equipment')->id_equipment_details;
 
         return [
-            'property_number' => ['required', 'string', 'max:120', "unique:equipment_details,property_number,{$id},id_equipment_details"],
-            'serial' => ['required', 'string', 'max:200'],
+            'property_number' => ['nullable', 'string', 'max:120', "unique:equipment_details,property_number,{$id},id_equipment_details"],
+            'serial' => ['nullable', 'string', 'max:200'],
             'observaciones' => ['nullable', 'string'],
             'id_type_of_equipment' => ['required', 'exists:type_of_equipment,id_type_of_equipment'],
             'id_brand' => ['required', 'exists:brands,id_brand'],

@@ -76,7 +76,7 @@ export default function EquipmentForm({
                     <div className="grid gap-6 sm:grid-cols-2">
                         <div className="grid gap-2">
                             <Label htmlFor="property_number">
-                                Número de inventario
+                                Número de Bien
                             </Label>
                             <Input
                                 id="property_number"

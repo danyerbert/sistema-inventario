@@ -19,23 +19,25 @@
     <table>
         <thead>
             <tr>
-                <th>N° inventario</th>
+                <th>N° Bien</th>
                 <th>Tipo</th>
                 <th>Marca</th>
                 <th>Serial</th>
                 <th>Puesto</th>
-                <th>Estado</th>
+                <th>Estatus</th>
+                <th>Observaciones</th>
             </tr>
         </thead>
         <tbody>
             @foreach ($equipos as $equipo)
                 <tr>
-                    <td>{{ $equipo->property_number }}</td>
+                    <td>{{ $equipo->property_number ?? 'N/P' }}</td>
                     <td>{{ $equipo->typeOfEquipment->type_of_equipment }}</td>
                     <td>{{ $equipo->brand->name_brand }}</td>
-                    <td>{{ $equipo->serial }}</td>
+                    <td>{{ $equipo->serial ?? 'N/P' }}</td>
                     <td>{{ $equipo->workstation->number_workstation ?? '—' }}</td>
                     <td>{{ $equipo->operationalStatus->operational_status }}</td>
+                    <td>{{ $equipo->observaciones }}</td>
                 </tr>
             @endforeach
         </tbody>
