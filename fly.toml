@@ -1,11 +1,8 @@
-# fly.toml - Configuración para Laravel en Fly.io
-
 app = "sistema-inventario-9x4gqq"
-primary_region = "bog" # Bogotá (la más cercana/de baja latencia para Latam)
+primary_region = "bog"
 
 [build]
-  # Utiliza la imagen oficial optimizada de Fly.io para Laravel
-  image = "flyio/laravel-buildpack:latest"
+  dockerfile = "Dockerfile"
 
 [env]
   APP_ENV = "production"
@@ -16,9 +13,6 @@ primary_region = "bog" # Bogotá (la más cercana/de baja latencia para Latam)
   CACHE_STORE = "file"
   DB_CONNECTION = "sqlite"
   DB_DATABASE = "/var/www/html/database/database.sqlite"
-
-[processes]
-  app = ""
 
 [http_service]
   internal_port = 8080
@@ -33,11 +27,9 @@ primary_region = "bog" # Bogotá (la más cercana/de baja latencia para Latam)
   cpu_kind = 'shared'
   cpus = 1
 
-# Montar un volumen persistente para que no se pierdan los datos de la base de datos SQLite
 [[mounts]]
   source = "sqlite_data"
   destination = "/var/www/html/database"
 
-# Tareas automáticas pre-despliegue (Ejecuta migraciones)
 [deploy]
   release_command = "php artisan migrate --force"
